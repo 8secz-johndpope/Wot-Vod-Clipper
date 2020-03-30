@@ -5,6 +5,8 @@ import math
 import ntpath
 from pathlib import Path
 
+from vod_clipper import VodClipper
+
 
 def compute_video_length():
     metadata = ffmpeg.probe(input_file)
@@ -15,15 +17,9 @@ def compute_video_length():
 
 def trim_clip(start_second):
     filename = compute_output_filename(start_second, start_second + duration)
-    # input_stream = ffmpeg.input(input_file)
-    # clip_stream = ffmpeg.trim(input_stream, start=start_second, duration=duration)
     print('Trimming clip: ' + filename)
-    process = (
-        ffmpeg
-            .input(input_file, ss=start_second, t=duration)
-            .output(filename, c='copy')
-    )
-    process.run(quiet=True, overwrite_output=True)
+    clipper = VodClipper()
+    clipper.clip(input_file, filename, start_second, duration)
 
 
 def compute_output_filename(start_second, end_second):
