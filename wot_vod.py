@@ -2,11 +2,11 @@ from enum import Enum
 
 
 class Tank(object):
-    def __init__(self, name, nation, _type, level):
+    def __init__(self, name, nation, _type, tier):
         self.name = name
         self.nation = nation
         self.type = _type
-        self.level = level
+        self.tier = tier
         pass
 
 
@@ -58,7 +58,7 @@ class Battle(object):
 class WotVod(object):
     def __init__(self, _date, _id, title):
         self.date = _date
-        self.id = id
+        self.id = _id
         self.title = title
         self.battles = []
         pass
