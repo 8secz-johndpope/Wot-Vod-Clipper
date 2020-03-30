@@ -13,6 +13,7 @@ class Tank(object):
 class Map(object):
     def __init__(self, name):
         self.name = name
+        pass
 
 
 class BattleLevel(Enum):
@@ -22,20 +23,35 @@ class BattleLevel(Enum):
     Third = 3
 
 
+class BattleTimestamp(object):
+    def __init__(self, hour: int, minute: int, second: int):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+        pass
+
+    def to_seconds(self):
+        return self.hour * 3600 + self.minute * 60 + self.second
+
+
 class BattleResult(object):
     def __init__(self, level: BattleLevel, damage: int, assistance: int, ):
         self.level = level
         self.damage = damage
         self.assistance = assistance
+        pass
 
 
 class Battle(object):
-    def __init__(self, tank: Tank, _map: Map, tier, start_s, end_s):
+    def __init__(self, tank: Tank, _map: Map, tier: int,
+                 start: BattleTimestamp, end: BattleTimestamp,
+                 result: BattleResult):
         self.tank = tank
         self.map = _map
         self.tier = tier
-        self.start = start_s
-        self.end = end_s
+        self.start = start
+        self.end = end
+        self.result = result
         pass
 
 

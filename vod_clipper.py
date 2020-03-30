@@ -6,7 +6,7 @@ class VodClipper:
     def __init__(self):
         pass
 
-    def clip(self, in_file: str, out_file: str, start_s: int = 0, duration_s: int = 60) -> None:
+    def clip(self, in_file: str, out_file: str, start_s: int = 0, duration_s: int = 60):
         self.validate(in_file, out_file, start_s, duration_s)
 
         process = (
