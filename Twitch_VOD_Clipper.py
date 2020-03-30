@@ -45,7 +45,7 @@ def main():
           'Video clip duration: {}s'
           .format(input_file, output_path, duration))
     video_length = compute_video_length()
-    for start_second in range(0, video_length + duration - 1, duration):
+    for start_second in range(0, video_length, duration):
         trim_clip(start_second)
 
 
