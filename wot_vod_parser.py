@@ -1,7 +1,7 @@
 import json
 import jsonschema
 
-from wot_vod import Tank, Map, BattleLevel, BattleResult, Battle, WotVod
+from wot_vod import Tank, Map, BattleLevel, BattleResult, BattleTimestamp, Battle, WotVod
 
 schema = {
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -167,3 +167,58 @@ schema = {
     },
     "required": ["WotVod"]
 }
+
+
+def parse(in_json) -> WotVod:
+    payload = json.loads(in_json)
+    jsonschema.validate(instance=payload, schema=schema)
+
+    return _build_wot_vod(payload)
+
+
+def _build_wot_vod(payload):
+    # Build WotVod
+    wot_vod_payload = payload["WotVod"]
+    wot_vod = WotVod(wot_vod_payload["date"], wot_vod_payload["id"], wot_vod_payload["title"])
+
+    # Build Battles
+    for battle_payload in wot_vod_payload["battles"]:
+        battle = _build_battle(battle_payload)
+        wot_vod.add(battle)
+
+    return wot_vod
+
+
+def _build_battle(payload):
+    tank = _build_tank(payload["tank"])
+    map = _build_map(payload["map"])
+    tier = payload["tier"]
+    start = _build_timestamp(payload["start"])
+    end = _build_timestamp(payload["end"])
+    battle_result = _build_battle_result(payload["result"])
+
+    return Battle(tank, map, tier, start, end, battle_result)
+
+
+def _build_tank(payload):
+    return Tank(payload["name"], payload["nation"], payload["type"], payload["tier"])
+
+
+def _build_map(payload):
+    return Map(payload["name"])
+
+
+def _build_timestamp(payload):
+    hour = payload["hour"]
+    minute = payload["minute"]
+    second = payload["second"]
+    return BattleTimestamp(hour, minute, second)
+
+
+def _build_battle_result(payload):
+    battle_level = _build_battle_level(payload["level"])
+    return BattleResult(battle_level, payload["damage"], payload["assistance"])
+
+
+def _build_battle_level(value):
+    return BattleLevel(value)
