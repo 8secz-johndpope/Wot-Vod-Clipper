@@ -1,6 +1,9 @@
+#!/usr/bin/python
+
+# Libraries
 import json
 import jsonschema
-
+# Locals
 from wot_vod import Tank, Map, BattleLevel, BattleResult, BattleTimestamp, Battle, WotVod
 
 schema = {
@@ -191,13 +194,13 @@ def _build_wot_vod(payload):
 
 def _build_battle(payload):
     tank = _build_tank(payload["tank"])
-    map = _build_map(payload["map"])
+    _map = _build_map(payload["map"])
     tier = payload["tier"]
     start = _build_timestamp(payload["start"])
     end = _build_timestamp(payload["end"])
     battle_result = _build_battle_result(payload["result"])
 
-    return Battle(tank, map, tier, start, end, battle_result)
+    return Battle(tank, _map, tier, start, end, battle_result)
 
 
 def _build_tank(payload):

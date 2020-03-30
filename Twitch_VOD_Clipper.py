@@ -1,10 +1,13 @@
+#!/usr/bin/python
+
+# Libraries
 import argparse
 import datetime
 import ffmpeg
 import math
 import ntpath
 from pathlib import Path
-
+# Locals
 from vod_clipper import VodClipper
 
 

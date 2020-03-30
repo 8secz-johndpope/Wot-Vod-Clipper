@@ -1,8 +1,9 @@
+#!/usr/bin/python
+
 # Libraries
 import ntpath
-
-# Local Libs
-from wot_vod import Tank, Map, BattleLevel, BattleResult, Battle, WotVod
+# Locals
+from wot_vod import Tank, Map, BattleLevel, BattleResult, BattleTimestamp, Battle, WotVod
 from vod_clipper import VodClipper
 
 

@@ -1,5 +1,8 @@
-import unittest
+#!/usr/bin/python
 
+# Libraries
+import unittest
+# Locals
 from wot_vod import Tank, Map, BattleLevel, BattleResult, BattleTimestamp, Battle, WotVod
 import wot_vod_parser
 

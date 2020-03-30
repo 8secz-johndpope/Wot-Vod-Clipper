@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+# Libraries
 import ffmpeg
 
 

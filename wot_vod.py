@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+# Libraries
 from enum import IntEnum
 import json
 
