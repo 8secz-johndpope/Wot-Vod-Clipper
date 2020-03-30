@@ -59,7 +59,6 @@ def parse_args():
     args = parser.parse_args()
     _input_file = args.input
     _output_path = args.output
-    import ntpath
 
     if _output_path is None:
         _output_path = compute_default_output_path(_input_file)
