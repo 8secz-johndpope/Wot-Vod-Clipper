@@ -15,10 +15,12 @@ class VodClipper:
                 .output(out_file, c='copy')
         )
         process.run(quiet=True, overwrite_output=True)
+        pass
 
     def validate(self, in_file, out_file, start_s, duration_s):
         self.validate_paths(in_file, out_file)
         self.validate_time(start_s, duration_s)
+        pass
 
     @staticmethod
     def validate_time(start_s, duration_s):
@@ -27,6 +29,7 @@ class VodClipper:
 
         if duration_s < 0:
             raise Exception("Please provide valid end time or duration")
+        pass
 
     @staticmethod
     def validate_paths(in_file, out_file):
@@ -35,3 +38,4 @@ class VodClipper:
 
         if not out_file:
             raise Exception("Please provide valid output file path")
+        pass
