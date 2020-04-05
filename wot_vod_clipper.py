@@ -17,6 +17,7 @@ class WotVodClipper(object):
         for battle in wot_vod.battles:
             out_filename = self.build_filename(battle, out_dir, extension)
             duration = battle.end - battle.start
+            print("[INFO] Clipping battle {}-{} to {}".format(battle.start, battle.end, out_filename))
             self.clipper.clip(in_file, out_filename, battle.start, duration)
         pass
 
