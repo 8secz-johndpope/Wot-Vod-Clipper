@@ -7,7 +7,7 @@ from wot_vod import Tank, Map, BattleLevel, BattleResult, BattleTimestamp, Battl
 from vod_clipper import VodClipper
 
 
-class WotVovClipper(object):
+class WotVodClipper(object):
     def __init__(self):
         self.clipper = VodClipper()
         pass
