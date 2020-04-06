@@ -34,7 +34,7 @@ class ClipByDurationFrame:
 
         # # -- Clip Button
         self.clip_button_frame = ClipButtonFrame(self.frame, "Clip", self._clip)
-        self.clip_button_frame.pack(expand=True, fill='both')
+        self.clip_button_frame.pack_full()
 
         # Recording
         self.parent_object = parent_object

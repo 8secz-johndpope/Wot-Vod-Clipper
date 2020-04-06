@@ -6,8 +6,8 @@ import tkinter as tk
 
 
 class ScrollFrame(tk.Frame):
-    def __init__(self, parent):
-        super().__init__(parent)  # create a frame (self)
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)  # create a frame (self)
 
         self.canvas = tk.Canvas(self, borderwidth=0)
         self.inner_frame = tk.Frame(self.canvas)

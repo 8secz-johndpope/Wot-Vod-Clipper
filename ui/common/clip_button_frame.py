@@ -14,3 +14,6 @@ class ClipButtonFrame(tk.Frame):
 
         self.button.pack(expand=True, fill='both')
         pass
+
+    def pack_full(self):
+        self.pack(expand=True, fill='both')
