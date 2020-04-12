@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Libs
-from tkinter import *
+import tkinter as tk
 # Locals
 
 
@@ -13,12 +13,12 @@ UI_FRAME_OUTSIDE_PAD = 10
 
 
 def build_label(parent, text):
-    return Label(parent, text=text)
+    return tk.Label(parent, text=text)
 
 
 def build_entry(parent, width):
-    return Entry(parent, width=width)
+    return tk.Entry(parent, width=width)
 
 
 def build_button(parent, text, callback):
-    return Button(parent, text=text, command=callback)
+    return tk.Button(parent, text=text, command=callback)
