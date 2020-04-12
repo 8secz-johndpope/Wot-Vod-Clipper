@@ -3,7 +3,7 @@
 # Libs
 from tkinter import *
 # Locals
-from ui.clip_by_battle_frame_ui import ClipByBattleFrame
+from ui.clipbybattle.main import ClipByBattleFrame
 from ui.clip_by_duration_frame_ui import ClipByDurationFrame
 from ui.common_frame_ui import CommonFrame, OutputFrame
 import ui.common.elements_builder as eb
@@ -38,7 +38,7 @@ class WotVodClipperUI(object):
         # --------------------------------
         # Main frames
         self.common_frame = CommonFrame(self)
-        self.clip_by_battle_frame = ClipByBattleFrame(self)
+        self.clip_by_battle_frame = ClipByBattleFrame(self.get())
         self.clip_by_duration_frame = ClipByDurationFrame(self)
         self.output_frame = OutputFrame(self)
         pass
@@ -58,9 +58,9 @@ class WotVodClipperUI(object):
         self.common_frame.get().grid(row=0, column=0,
                                      padx=eb.UI_FRAME_OUTSIDE_PAD, pady=eb.UI_FRAME_OUTSIDE_PAD,
                                      sticky=W + E)
-        self.clip_by_battle_frame.get().grid(row=1, column=0, columnspan=3,
-                                             padx=eb.UI_FRAME_OUTSIDE_PAD, pady=eb.UI_FRAME_OUTSIDE_PAD,
-                                             sticky=W + E)
+        self.clip_by_battle_frame.grid(row=1, column=0, columnspan=3,
+                                       padx=eb.UI_FRAME_OUTSIDE_PAD, pady=eb.UI_FRAME_OUTSIDE_PAD,
+                                       sticky=W + E)
         self.clip_by_duration_frame.get().grid(row=2, column=0, columnspan=3,
                                                padx=eb.UI_FRAME_OUTSIDE_PAD, pady=eb.UI_FRAME_OUTSIDE_PAD,
                                                sticky=W + E)

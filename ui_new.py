@@ -3,7 +3,7 @@
 # Libs
 import tkinter as tk
 # Locals
-from ui.clipbybattle.frames import ClipByBattleFrame
+from ui.clipbybattle.main import ClipByBattleFrame
 
 
 if __name__ == '__main__':
