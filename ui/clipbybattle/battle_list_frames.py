@@ -6,7 +6,7 @@ import uuid
 # Locals
 from common.wot_vod_elements import MasteryBadge, Tier
 import ui.common.elements_builder as eb
-from ui.common.elements import TimeStampFrame
+from ui.common.frames import TimeStampFrame
 from ui.common.clip_button_frame import ClipButtonFrame
 
 

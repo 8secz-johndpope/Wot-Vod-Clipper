@@ -4,7 +4,7 @@
 import datetime
 import tkinter as tk
 # Locals
-from ui.common.elements import DateFrame, SingleEntryFrame
+from ui.common.frames import DateFrame, SingleEntryFrame
 import ui.common.elements_builder as eb
 
 
