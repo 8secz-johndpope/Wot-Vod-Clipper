@@ -22,7 +22,7 @@ def trim_clip(start_second):
     filename = compute_output_filename(start_second, start_second + duration)
     print('Trimming clip: ' + filename)
     clipper = VodClipper()
-    clipper.clip(input_file, filename, start_second, duration)
+    clipper.clip_with_nvidia(input_file, filename, start_second, duration)
 
 
 def compute_output_filename(start_second, end_second):
@@ -56,7 +56,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Splitting Twitch VOD by a designated time interval.')
     parser.add_argument('-i', '--input', dest="input", required=True, help='Input video file path')
     parser.add_argument('-o', '--output', dest="output", default=None, help='Output video directory')
-    parser.add_argument('-d', '--duration', dest="duration", default=1200, type=int,
+    parser.add_argument('-d', '--duration', dest="duration", default=1800, type=int,
                         help='Duration of each video clip, in seconds')
 
     args = parser.parse_args()
